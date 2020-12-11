@@ -11,15 +11,33 @@ namespace RPSLS
         // Memeber Variables (Has A)
         public string name;
         public int score;
-        public List<Player> gestures;
+        public List<Gesture> gesturesList;
 
         // Constructor (Spawner)
-        public Player()
+        public Player(string name, int score)
         {
+            this.name = name;
+            this.score = score;
+            gesturesList = new List<Gesture>();
+
+            Gesture rock = new Gesture("rock");
+            Gesture paper = new Gesture("paper");
+            Gesture scissors = new Gesture("scissors");
+            Gesture lizard = new Gesture("lizard");
+            Gesture spock = new Gesture("spock");
+
+            PopulateGestureList(rock);
+            PopulateGestureList(paper);
+            PopulateGestureList(scissors);
+            PopulateGestureList(lizard);
+            PopulateGestureList(spock);
 
         }
 
         // Member Methods (Can Do)
-
+        public void PopulateGestureList(Gesture gesture)
+        {
+            gesturesList.Add(gesture);
+        }
     }
 }
