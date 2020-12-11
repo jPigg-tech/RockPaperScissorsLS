@@ -14,10 +14,10 @@ namespace RPSLS
         public List<Gesture> gesturesList;
 
         // Constructor (Spawner)
-        public Player(string name, int score)
+        public Player(string name)
         {
             this.name = name;
-            this.score = score;
+            score = 0;
             gesturesList = new List<Gesture>();
 
             Gesture rock = new Gesture("rock");
