@@ -10,13 +10,15 @@ namespace RPSLS
     {
         // Memeber Variables (Has A)
         public string name;
+        public string type;
         public int score;
         public List<Gesture> gesturesList;
 
         // Constructor (Spawner)
-        public Player(string name)
+        public Player(string name, string type)
         {
             this.name = name;
+            this.type = type;
             score = 0;
             gesturesList = new List<Gesture>();
 

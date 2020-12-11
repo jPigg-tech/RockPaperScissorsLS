@@ -12,11 +12,11 @@ namespace RPSLS
 
 
         // Constructor (Spawner)
-        public Human(string name)
+        public Human(string name, string type)
         {
             this.name = name;
+            this.type = type;
             
-            List<Gesture> gesturesList;
         }
 
         // Member Methods (Can Do)
