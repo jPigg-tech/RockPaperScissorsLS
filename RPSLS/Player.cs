@@ -10,23 +10,24 @@ namespace RPSLS
     {
         // Memeber Variables (Has A)
         public string name;
-        public string type;
         public int score;
         public List<Gesture> gesturesList;
+        public Gesture chosenGesture;
 
         // Constructor (Spawner)
-        public Player(string name, string type)
+        public Player(string name)
         {
             this.name = name;
-            this.type = type;
             score = 0;
+            
             gesturesList = new List<Gesture>();
 
-            Gesture rock = new Gesture("rock");
-            Gesture paper = new Gesture("paper");
-            Gesture scissors = new Gesture("scissors");
-            Gesture lizard = new Gesture("lizard");
-            Gesture spock = new Gesture("spock");
+
+            Gesture rock = new Gesture("rock", "sciisors", "lizard");
+            Gesture paper = new Gesture("paper", "rock", "spock");
+            Gesture scissors = new Gesture("scissors", "paper", "lizard");
+            Gesture lizard = new Gesture("lizard", "paper", "spock");
+            Gesture spock = new Gesture("spock", "rock", "scissors");
 
             PopulateGestureList(rock);
             PopulateGestureList(paper);

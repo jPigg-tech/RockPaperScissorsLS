@@ -14,8 +14,8 @@ namespace RPSLS
         {
             playerList = new List<Player>();
 
-            Human human = new Human("playerOne", "Human");
-            AI computer = new AI("iDontLose", "Computer");
+            Human human = new Human("playerOne");
+            AI computer = new AI("iDontLose");
 
             playerList.Add(human);
             playerList.Add(computer);

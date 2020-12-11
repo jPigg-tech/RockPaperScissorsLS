@@ -12,11 +12,9 @@ namespace RPSLS
 
 
         // Constructor (Spawner)
-        public Human(string name, string type)
+        public Human(string name):base(name)
         {
-            this.name = name;
-            this.type = type;
-            
+                       
         }
 
         // Member Methods (Can Do)
@@ -28,6 +26,7 @@ namespace RPSLS
                 Console.WriteLine("Press " + i + " for " + gesturesList[i].type);
             }
             // string input = Console.ReadLine();
+            // return Int32.Parse(input);
         }
     }
 }

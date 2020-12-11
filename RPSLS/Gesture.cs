@@ -10,12 +10,16 @@ namespace RPSLS
     {
         // Member Variables
 
-        public string type;
+        public string type; // rock
+        public string beatsOne; // scissors 
+        public string beatsTwo; // lizard
 
         // constructor
-        public Gesture(string type)
+        public Gesture(string type, string beatsOne, string beatsTwo)
         {
             this.type = type;
+            this.beatsOne = beatsOne;
+            this.beatsTwo = beatsTwo;
         }
 
         // Member Methods 

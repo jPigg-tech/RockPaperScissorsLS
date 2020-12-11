@@ -11,13 +11,13 @@ namespace RPSLS
         // Memeber Variables (Has A)
         public List<Gesture> gesturesList;
         public Opponents opponents;
-        int playerOneScore;
-        int playerTwoScore;
+        Player playerOne;
+        Player playerTwo;
 
 
         // Constructor (Spawner)
         public Game()
-        {           
+        {
 
         }
 
@@ -27,9 +27,9 @@ namespace RPSLS
             string playerOne = GetPlayersName();
             string playerTwo = ChooseOpponent();
 
-            while(playerOneScore < 2 && playerTwoScore < 2)
+            while (playerOne.score < 2 && playerTwo.score < 2)
             {
-                // Run  single round of the game
+                // Run single round of the game
             }
 
             DisplayWinner();
@@ -41,19 +41,36 @@ namespace RPSLS
             string playersName = Console.ReadLine();
             return playersName;
         }
-        public string ChooseOpponent()
+        public void ChooseOpponent()
         {
-            Console.WriteLine("Choose your opponent:");
-            for (int i = 0; i < opponents.playerList.Count; i++)
+            Console.WriteLine("Please choose game mode to play \n");
+            string mode = Console.ReadLine();
+
+            switch (mode)
             {
-                Console.WriteLine("Press " + i + " for " + opponents.playerList[i].type);
+                case "Human vs Human":
+                    playerOne = new Human(GetPlayersName());
+                    playerTwo = new Human(GetPlayersName());
+                    break;
+
+                case "Human vs Computer":
+                    playerOne = new Human(GetPlayersName());
+                    playerTwo = new AI(GetPlayersName());
+                    break;
+
+                case "Computer vs Computer":
+                    playerOne = new AI(GetPlayersName());
+                    playerTwo = new AI(GetPlayersName());
+                    break;
+
+                default:
+                    Console.WriteLine("Not a valid gmae mode");
+                    break;
             }
-            string input = Console.ReadLine();
-            return input;
         }
         public void DisplayWinner()
         {
-            if (playerOneScore > playerTwoScore)
+            if (playerOne.score > playerTwo.score)
             {
                 Console.WriteLine("Player One has won the game!");
             }
@@ -61,6 +78,10 @@ namespace RPSLS
             {
                 Console.WriteLine("Player Two has won the game!");
             }
+        }
+        public void RunSingleRound()
+        {
+
         }
     }
 }

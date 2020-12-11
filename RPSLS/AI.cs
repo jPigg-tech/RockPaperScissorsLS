@@ -12,13 +12,9 @@ namespace RPSLS
 
 
         // Constructor (Spawner)
-        public AI(string name, string type)
+        public AI(string name) : base(name)
         {
-            string iDontLose = name;
-            string computer = type;
-
-            // name = "iDontLose";
-            // type = "computer";
+            
         }
 
         // Member Methods (Can Do)
