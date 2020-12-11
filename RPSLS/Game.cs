@@ -10,7 +10,6 @@ namespace RPSLS
     {
         // Memeber Variables (Has A)
         public List<Gesture> gesturesList;
-        public Opponents opponents;
         Player playerOne;
         Player playerTwo;
 
@@ -78,16 +77,27 @@ namespace RPSLS
         {
             if (playerOne.score > playerTwo.score)
             {
-                Console.WriteLine(playerOne + " has won the game!");
+                Console.WriteLine(playerOne.name + " has won the game!");
             }
             else
             {
-                Console.WriteLine(playerTwo + " has won the game!");
+                Console.WriteLine(playerTwo.name + " has won the game!");
             }
         }
         public void RunSingleRound()
         {
+            if ()
+            {
 
+            }
+            else if ()
+            {
+
+            }
+            else
+            {
+
+            }
         }
     }
 }
