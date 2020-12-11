@@ -14,12 +14,20 @@ namespace RPSLS
         // Constructor (Spawner)
         public AI(string name, string type)
         {
-            this.name = name;
-            this.type = type;
-            
+            string iDontLose = name;
+            string computer = type;
+
+            // name = "iDontLose";
+            // type = "computer";
         }
 
         // Member Methods (Can Do)
-
+        public void ChooseGesture()
+        {
+            var rand = new Random();
+            int gesture = rand.Next(gesturesList.Count);
+            Console.WriteLine(gesturesList[gesture]);
+        }
+            
     }
 }
