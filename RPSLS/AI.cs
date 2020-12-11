@@ -18,12 +18,13 @@ namespace RPSLS
         }
 
         // Member Methods (Can Do)
-        public override void ChooseGesture()
+        public override string ChooseGesture()
         {
             var rand = new Random();
             int gesture = rand.Next(gesturesList.Count);
-            Console.WriteLine(gesturesList[gesture]);
-        }
-            
+            // Console.WriteLine(gesturesList[gesture]);
+            string input = gesture.ToString();
+            return input;
+        }        
     }
 }

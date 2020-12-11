@@ -12,6 +12,7 @@ namespace RPSLS
         public List<Gesture> gesturesList;
         Player playerOne;
         Player playerTwo;
+        Gesture gesture;
 
 
         // Constructor (Spawner)
@@ -86,17 +87,24 @@ namespace RPSLS
         }
         public void RunSingleRound()
         {
-            if ()
+            if (playerOne.ChooseGesture() == playerTwo.ChooseGesture())
             {
-
+                Console.WriteLine("The round is a tie.");
             }
-            else if ()
+            else if (playerOne.ChooseGesture() != playerTwo.ChooseGesture())
             {
-
+                if (playerOne.chosenGesture.type == playerTwo.chosenGesture.beatsOne)
+                {
+                    Console.WriteLine(playerOne + "Wins this round!");
+                }
+                else if ((playerOne.chosenGesture.type == playerTwo.chosenGesture.beatsTwo))
+                {
+                    Console.WriteLine(playerOne + "Wins this round!");
+                }              
             }
             else
             {
-
+                Console.WriteLine(playerTwo + "Wins this round!");
             }
         }
     }

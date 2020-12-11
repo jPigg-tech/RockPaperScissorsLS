@@ -42,6 +42,6 @@ namespace RPSLS
         {
             gesturesList.Add(gesture);
         }
-        public abstract void ChooseGesture();
+        public abstract string ChooseGesture();
     }
 }
