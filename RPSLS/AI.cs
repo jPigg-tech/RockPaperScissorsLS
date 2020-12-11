@@ -22,7 +22,7 @@ namespace RPSLS
         }
 
         // Member Methods (Can Do)
-        public void ChooseGesture()
+        public override void ChooseGesture()
         {
             var rand = new Random();
             int gesture = rand.Next(gesturesList.Count);

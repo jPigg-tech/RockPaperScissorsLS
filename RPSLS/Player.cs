@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class Player
+    abstract class Player
     {
         // Memeber Variables (Has A)
         public string name;
@@ -41,5 +41,6 @@ namespace RPSLS
         {
             gesturesList.Add(gesture);
         }
+        public abstract void ChooseGesture();
     }
 }
