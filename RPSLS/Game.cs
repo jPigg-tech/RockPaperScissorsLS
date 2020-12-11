@@ -24,8 +24,8 @@ namespace RPSLS
         // Member Methods (Can Do)
         public void RunGame()
         {
-            string playerOne = GetPlayersName();
-            string playerTwo = ChooseOpponent();
+            Welcome();
+            ChooseGameMode();
 
             while (playerOne.score < 2 && playerTwo.score < 2)
             {
@@ -34,14 +34,20 @@ namespace RPSLS
 
             DisplayWinner();
         }
+        public void Welcome()
+        {
+            Console.WriteLine("Welcome to Rock Paper Scissors Lizard SPOCK!");
+            Console.WriteLine("The fate of the deul is in your hands! Literally!");
+            Console.ReadLine();
+        }
 
         public string GetPlayersName()
         {
-            Console.WriteLine("What is your name?");
+            Console.WriteLine("Enter your name?");
             string playersName = Console.ReadLine();
             return playersName;
         }
-        public void ChooseOpponent()
+        public void ChooseGameMode()
         {
             Console.WriteLine("Please choose game mode to play \n");
             string mode = Console.ReadLine();
@@ -72,11 +78,11 @@ namespace RPSLS
         {
             if (playerOne.score > playerTwo.score)
             {
-                Console.WriteLine("Player One has won the game!");
+                Console.WriteLine(playerOne + " has won the game!");
             }
             else
             {
-                Console.WriteLine("Player Two has won the game!");
+                Console.WriteLine(playerTwo + " has won the game!");
             }
         }
         public void RunSingleRound()
