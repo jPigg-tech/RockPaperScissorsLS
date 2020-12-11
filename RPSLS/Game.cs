@@ -9,9 +9,7 @@ namespace RPSLS
     class Game
     {
         // Memeber Variables (Has A)
-        public Player winner;
         public List<Gesture> gesturesList;
-        public List<Player> playerList;
         public Opponents opponents;
         int playerOneScore;
         int playerTwoScore;
@@ -59,7 +57,6 @@ namespace RPSLS
             {
                 Console.WriteLine("Player One has won the game!");
             }
-
             else
             {
                 Console.WriteLine("Player Two has won the game!");

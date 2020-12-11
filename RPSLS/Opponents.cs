@@ -9,6 +9,18 @@ namespace RPSLS
     class Opponents
     {
         public List<Player> playerList;
+
+        public Opponents()
+        {
+            playerList = new List<Player>();
+
+            Human human = new Human("playerOne", "Human");
+            AI computer = new AI("iDontLose", "Computer");
+
+            playerList.Add(human);
+            playerList.Add(computer);
+              
+        }
     }
 }
  
