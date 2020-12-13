@@ -9,16 +9,14 @@ namespace RPSLS
     class Game
     {
         // Memeber Variables (Has A)
-        public List<Gesture> gesturesList;
         Player playerOne;
         Player playerTwo;
-        Gesture gesture;
-
+        Random rand;
 
         // Constructor (Spawner)
         public Game()
         {
-
+            rand = new Random();
         }
 
         // Member Methods (Can Do)
@@ -30,6 +28,7 @@ namespace RPSLS
             while (playerOne.score < 2 && playerTwo.score < 2)
             {
                 // Run single round of the game
+                RunSingleRound();
             }
 
             DisplayWinner();
@@ -43,35 +42,47 @@ namespace RPSLS
 
         public string GetPlayersName()
         {
-            Console.WriteLine("Enter your name?");
+            Console.WriteLine("Enter a name?");
             string playersName = Console.ReadLine();
             return playersName;
         }
         public void ChooseGameMode()
         {
-            Console.WriteLine("Please choose game mode to play \n");
-            string mode = Console.ReadLine();
-
-            switch (mode)
+            bool checkInput = true;
+            while (checkInput)
             {
-                case "Human vs Human":
+                Console.WriteLine("Please choose game mode to play \n");
+                Console.WriteLine("Enter '1' for Human vs Human, enter '2' Human vs Computer, enter '3' Computer vs Computer.");
+                string mode = Console.ReadLine();
+
+                switch (mode)
+                {
+                    case "1":
+                    case "Human vs Human":
                     playerOne = new Human(GetPlayersName());
                     playerTwo = new Human(GetPlayersName());
+                    checkInput = false;
                     break;
 
-                case "Human vs Computer":
+                    case "2":
+                    case "Human vs Computer":
                     playerOne = new Human(GetPlayersName());
-                    playerTwo = new AI(GetPlayersName());
+                    playerTwo = new AI(GetPlayersName(), rand);
+                    checkInput = false;
                     break;
 
-                case "Computer vs Computer":
-                    playerOne = new AI(GetPlayersName());
-                    playerTwo = new AI(GetPlayersName());
+                    case "3":
+                    case "Computer vs Computer":
+                    playerOne = new AI(GetPlayersName(), rand);
+                    playerTwo = new AI(GetPlayersName(), rand);
+                    checkInput = false;
                     break;
 
-                default:
-                    Console.WriteLine("Not a valid gmae mode");
+                    default:
+                    Console.WriteLine("Not a valid game mode");
                     break;
+                }
+
             }
         }
         public void DisplayWinner()
@@ -87,25 +98,32 @@ namespace RPSLS
         }
         public void RunSingleRound()
         {
-            if (playerOne.ChooseGesture() == playerTwo.ChooseGesture())
+            playerOne.ChooseGesture();
+            playerTwo.ChooseGesture();
+
+            if (playerOne.chosenGesture.type == playerTwo.chosenGesture.type)
             {
+                
                 Console.WriteLine("The round is a tie.");
             }
-            else if (playerOne.ChooseGesture() != playerTwo.ChooseGesture())
-            {
-                if (playerOne.chosenGesture.type == playerTwo.chosenGesture.beatsOne)
+            else 
+            {               
+                if (playerOne.chosenGesture.beatsOne == playerTwo.chosenGesture.type)
                 {
-                    Console.WriteLine(playerOne + "Wins this round!");
+                    Console.WriteLine(playerOne.name + "Wins this round!");
+                    playerOne.score++;
+                    return;
                 }
-                else if ((playerOne.chosenGesture.type == playerTwo.chosenGesture.beatsTwo))
+                else if (playerOne.chosenGesture.beatsTwo == playerTwo.chosenGesture.type)
                 {
-                    Console.WriteLine(playerOne + "Wins this round!");
-                }              
+                    Console.WriteLine(playerOne.name + "Wins this round!");
+                    playerOne.score++;
+                    return;
+                }
+                Console.WriteLine(playerTwo.name + "Wins this round!");
+                playerTwo.score++;                
             }
-            else
-            {
-                Console.WriteLine(playerTwo + "Wins this round!");
-            }
+           
         }
     }
 }

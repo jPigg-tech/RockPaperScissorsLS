@@ -9,22 +9,20 @@ namespace RPSLS
     class AI: Player
     {
         // Memeber Variables (Has A)
-
+        Random rand;
 
         // Constructor (Spawner)
-        public AI(string name) : base(name)
+        public AI(string name, Random rand) : base(name)
         {
-            
+            this.rand = rand;
         }
 
         // Member Methods (Can Do)
-        public override string ChooseGesture()
-        {
-            var rand = new Random();
+        public override void ChooseGesture()
+        {     
             int gesture = rand.Next(gesturesList.Count);
-            // Console.WriteLine(gesturesList[gesture]);
-            string input = gesture.ToString();
-            return input;
+
+            chosenGesture = gesturesList[gesture];
         }        
     }
 }
