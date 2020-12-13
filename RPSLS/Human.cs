@@ -32,38 +32,38 @@ namespace RPSLS
                     
                     switch (input)
                     {
-                        case "1":
+                        case "0":
                         case "rock":
                         chosenGesture = gesturesList[0];
                         checkInput = false;
                         break;
 
-                        case "2":
+                        case "1":
                         case "paper":
                         chosenGesture = gesturesList[1];
                         checkInput = false;
                         break;
 
-                        case "3":
+                        case "2":
                         case "scissors":
                         chosenGesture = gesturesList[2];
                         checkInput = false;
                         break;
 
-                        case "4":
+                        case "3":
                         case "lizard":
                         chosenGesture = gesturesList[3];
                         checkInput = false;
                         break;
 
-                        case "5":
+                        case "4":
                         case "spock":
                         chosenGesture = gesturesList[4];
                         checkInput = false;
                         break;
 
                         default:
-                        Console.WriteLine("Not a valid gesture choice. Try again!");
+                        Console.WriteLine("Not a valid gesture choice. Try again! \n");
                         break;
                     }
             }           

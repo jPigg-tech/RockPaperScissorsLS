@@ -42,7 +42,7 @@ namespace RPSLS
 
         public string GetPlayersName()
         {
-            Console.WriteLine("Enter a name?");
+            Console.WriteLine("Enter the players name.");
             string playersName = Console.ReadLine();
             return playersName;
         }
@@ -52,7 +52,9 @@ namespace RPSLS
             while (checkInput)
             {
                 Console.WriteLine("Please choose game mode to play \n");
-                Console.WriteLine("Enter '1' for Human vs Human, enter '2' Human vs Computer, enter '3' Computer vs Computer.");
+                Console.WriteLine("Enter '1' for Human vs Human.");
+                Console.WriteLine("Enter '2' Human vs Computer.");
+                Console.WriteLine("Enter '3' Computer vs Computer. \n");
                 string mode = Console.ReadLine();
 
                 switch (mode)
@@ -103,24 +105,31 @@ namespace RPSLS
 
             if (playerOne.chosenGesture.type == playerTwo.chosenGesture.type)
             {
-                
-                Console.WriteLine("The round is a tie.");
+                Console.WriteLine(playerOne.name + " chose " + playerOne.chosenGesture.type + ".");
+                Console.WriteLine(playerTwo.name + " chose " + playerTwo.chosenGesture.type + ". \n");
+                Console.WriteLine("The round is a tie. \n");
             }
             else 
             {               
                 if (playerOne.chosenGesture.beatsOne == playerTwo.chosenGesture.type)
                 {
-                    Console.WriteLine(playerOne.name + "Wins this round!");
+                    Console.WriteLine(playerOne.name + " chose " + playerOne.chosenGesture.type + ".");
+                    Console.WriteLine(playerTwo.name + " chose " + playerTwo.chosenGesture.type + ". \n");
+                    Console.WriteLine(playerOne.name + " Wins this round! \n");
                     playerOne.score++;
                     return;
                 }
                 else if (playerOne.chosenGesture.beatsTwo == playerTwo.chosenGesture.type)
                 {
-                    Console.WriteLine(playerOne.name + "Wins this round!");
+                    Console.WriteLine(playerOne.name + " chose " + playerOne.chosenGesture.type + ".");
+                    Console.WriteLine(playerTwo.name + " chose " + playerTwo.chosenGesture.type + ". \n");
+                    Console.WriteLine(playerOne.name + " Wins this round! \n");
                     playerOne.score++;
                     return;
                 }
-                Console.WriteLine(playerTwo.name + "Wins this round!");
+                Console.WriteLine(playerOne.name + " chose " + playerOne.chosenGesture.type + ".");
+                Console.WriteLine(playerTwo.name + " chose " + playerTwo.chosenGesture.type + ". \n");
+                Console.WriteLine(playerTwo.name + " Wins this round! \n");
                 playerTwo.score++;                
             }
            
